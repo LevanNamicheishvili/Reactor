@@ -1,0 +1,52 @@
+$cat-list-colors: (
+  1: (#FFB82F, 83px, #D6961C),
+  2: (#1CD67D, 97px, #15C972),
+  3: (#B71FDD, 184px, #B71FDD),
+  4: (#FA5757, 65px, #DC2828),
+  5: (#1CD67D, 77px, #60BE16),
+  6: (#08D2AE, 64px, #1AC7A8),
+);
+
+.blogHeader {
+  height: 328px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+  }
+}
+
+.categories { 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.flx_cat{
+    display: flex;
+    align-items: center; 
+    gap: 24px;
+}
+.cat_list {
+  border-radius: 30px;
+  height: 32px;
+  padding: 8px 16px;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+ 
+  @each $index, $value in $cat-list-colors {
+    &:nth-child(#{$index}) {
+        $bg-color: nth($value, 1);
+        $width: nth($value, 2);
+        $font-color: nth($value, 3);
+        background-color: rgba($bg-color, 0.08);
+        width: $width;
+        color: $font-color;
+    }
+}
+}

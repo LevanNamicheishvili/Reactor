@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+}
+
+
+.KKFIde_flex {
+    height: 328px;
+    width: 408px;
+}
+
+.containers_fetched_inf {
+    display: flex;
+    gap: 85px;
+    /* width: 89%; */
+    padding: 129px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0px 167px 0px 167px;
+}
+.Ig_ffSq{
+    margin-bottom: 24px;
+}
+.nameofpublisher{
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.dateofpublish{
+    margin-bottom: 16px;
+    color: #85858D;
+    font-size: 12px;
+}
+.title_d{
+    margin-bottom: 16px;
+    color: #1A1A1F;
+    font-size: 20px;
+    font-weight: bold;
+}
+.cat_fetch_f{
+    margin-bottom: 16px;
+
+}
+.text_fetch{
+   
+    color: #404049;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+}
