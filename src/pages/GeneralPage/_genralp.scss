@@ -4,46 +4,83 @@ body {
 
 
 .KKFIde_flex {
-    height: 328px;
+    height: 563px;
     width: 408px;
+    margin-bottom: 24px;
 }
 
 .containers_fetched_inf {
     display: flex;
     gap: 85px;
-    /* width: 89%; */
     padding: 129px;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 0px 167px 0px 167px;
-}
-.Ig_ffSq{
+    font-family: sans-serif;
+}   
+
+.Ig_ffSq {
     margin-bottom: 24px;
 }
-.nameofpublisher{
+
+.nameofpublisher {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: bold;
 }
-.dateofpublish{
+
+.dateofpublish {
     margin-bottom: 16px;
     color: #85858D;
     font-size: 12px;
 }
-.title_d{
+
+.title_d {
     margin-bottom: 16px;
     color: #1A1A1F;
     font-size: 20px;
     font-weight: bold;
 }
-.cat_fetch_f{
+
+.cat_fetch_f {
     margin-bottom: 16px;
 
 }
-.text_fetch{
-   
+
+.text_fetch {
+
     color: #404049;
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
+    height: 59px;
+    overflow: hidden;
 }
+
+.cat_fetch_f {
+    display: flex;
+    gap: 20px;
+
+    span{
+        width: auto;
+        height: auto;
+        border-radius: 30px;
+        padding: 6px 10px;
+        font-size: 12px;    
+    }
+
+}
+.cretaLca{
+    width: 76px;
+    height: 28px;
+    padding:6px 10px 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
