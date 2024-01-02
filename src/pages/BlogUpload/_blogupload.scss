@@ -1,86 +1,145 @@
-.upldPageH { 
+.upldPageH {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.blogupload{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
-    .civiial { 
-        cursor: pointer;
-        position: relative;
-        right: 260px;
-    }
-    form { 
-        width: 600px;
-        height: 928px;
-        background-color: blue;
+body {
+    height: 100vh;
+}
 
-        input { 
-            width: 100%;
+.container_sl {
+    width: 600px;
+}
+
+.subm {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .picuploderdiv {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input {
             height: 180px;
+            border: 1px dashed #000000;
             border-radius: 12px;
-            border: dashed 1px #000;
+            margin-bottom: 24px;
         }
     }
 }
-.blguH { 
-    margin-bottom: 40px;
-    span { 
-        font-size: 32px;
-        font-weight: bold;
-    }   
+
+.flexup {
+    display: flex;
+    justify-content: center;
 }
-.picuptitle{ 
-    margin-bottom: 8px;
-    span{
-        margin-bottom: 8px;
-        font-weight: bold;
+
+.detailsusrtitle {
+    display: flex;
+}
+
+.detailuser,
+.detailtitle {
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.detailuser label,
+.detailtitle label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.detailuser input,
+.detailtitle input,
+.date_in input,
+.cat_ls select,
+.email_ls input,
+.submitionbtn button{
+
+    width: 288px;
+    height: 44px;
+    border: 1px solid #E4E3EB;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.detailtitle { 
+    margin-left: 17px;
+}
+
+.description_ls,.date_in,.cat_ls,.email_ls{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
+    label { 
+        margin-bottom: 10px;
+    }
+}
+.description_ls { 
+    textarea{
+        height: 124px;
+        border-radius: 12px;
+        border: 1px solid #E4E3EB;
+        padding: 8px;
+    }
+    span { 
         font-size: 12px;
+        font-weight: none;
+        color: #A8A6B2;
+        margin-top: 10px;
+        margin-bottom: 24px;
     }
 }
 
-.imgupload { 
-    width: 100%;
-    height: 180px;
-    border-radius: 12px;
-    border: 1px dashed;
-    background-color: #F4F3FF;
+.fjjKK{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    img { 
-        position: relative;
-        top: 20px;
-    }
-    span{
-        position: relative;
-        right: 44px;
-        top: 20px;
-        font-size: 14px;
-    }
-    label { 
-        position: relative;
-        left: 94px;
-        top: -30px;
-        font-size: 14px;
+    justify-content: space-between;
+}
+.submitionbtn{
+    display: flex;
+    justify-content: flex-end;
+    button { 
+        color: #FFFFFF;
         font-weight: bold;
-        text-decoration: underline; 
-        cursor: pointer;
     }
-    
 }
-.authorInputType,.headLineInputType{
-    width: 288px !important;
+.listcriteriums{
+    li { 
+        color: #85858D;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    margin-bottom: 10px;
+}
+.css-13cymwt-control{
+    width: 288px !important; 
     height: 44px !important;
-    background-color: #FCFCFD  !important;
-    border: 1px solid #E4E3EB !important;
+    border-radius: 12px !important;
 }
-.userdetails { 
-    margin-top: 20px;
-    display: flex;
+.css-b62m3t-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 288px;
+    height: 44px !important;
+}
+.css-1y7rh0y-MultiValueGeneric2 { 
+   border-radius: 12px;
 }

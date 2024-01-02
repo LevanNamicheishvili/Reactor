@@ -4,8 +4,8 @@ import BlogComponent from '../../components/BlogComponent/index';
 import RegModal from '../../components/RegModal';
 const GeneralPage = () => {
   const [blogData, setBlogData] = useState([]);
-  const [displayCount, setDisplayCount] = useState(3);
-  const [initialDisplayCount, setInitialDisplayCount] = useState(3);
+  const [displayCount, setDisplayCount] = useState(20);
+  const [initialDisplayCount, setInitialDisplayCount] = useState(20);
   
   useEffect(() => {
     const fetchData = async () => {

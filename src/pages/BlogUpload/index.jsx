@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import logo from '../../assets/images/logo.png';
+import Select from 'react-select';
 const BlogForm = () => {
   const [formData, setFormData] = useState({
     title: '',
@@ -21,10 +22,7 @@ const BlogForm = () => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
-  const handleCategoriesChange = (e) => {
-    const selectedCategories = Array.from(e.target.selectedOptions, (option) => parseInt(option.value));
-    setFormData({ ...formData, categories: selectedCategories });
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,42 +48,92 @@ const BlogForm = () => {
         }
       );
 
+
       console.log(response.status, response.statusText);
       console.log(response.data);
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  const categories = [
+    { value: '1', label: 'მარკეტი' },
+    { value: '2', label: 'აპლიკაცია' },
+    { value: '3', label: 'ხელოვნური ინტელექტი' },
+    { value: '4', label: 'UI/UX' },
+    { value: '5', label: 'კვლევა' },
+    { value: '6', label: 'Figmas' }
+
+  ];
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Title:</label>
-      <input type="text" name="title" value={formData.title} onChange={handleInputChange} required />
+    <>
+      <header className='upldPageH'>
+        <img src={logo} alt="" />
+      </header>
+      <div className="flexup">
+        <div className="container_sl">
+          <form className='subm' onSubmit={handleSubmit}>
+            <h1>ბლოგის დამატება</h1>
+            <div className="picuploderdiv">
+              <label>ატვირთეთ ფოტო</label>
+              <input type="file" name="image" onChange={handleImageChange} accept="image/*" required />
 
-      <label>Description:</label>
-      <textarea name="description" value={formData.description} onChange={handleInputChange} required />
+            </div>
+            <div className="detailsusrtitle">
+              <div className="detailuser">
+                <label>ავტორი*</label>
+                <input placeholder='შეიყვანეთ ავტორი' type="text" name="author" value={formData.author} onChange={handleInputChange} required />
+                <div className="listcriteriums">
+                  <li>∙ მინიმუმ 4 სიმბოლო</li>
+                  <li>∙ მინიმუმ ორი სიტყვა</li>
+                  <li>∙ მხოლოდ ქართული სიმბოლოები</li>
+                </div>
+              </div>
+              <div className="detailtitle">
+                <label>სათაური*</label>
+                <input placeholder='შეიყვანეთ სათაური' type="text" name="title" value={formData.title} onChange={handleInputChange} required />
+                <div className="listcriteriums">
+                  <li>∙ მინიმუმ 2 სიმბოლო</li>
+                </div>
+              </div>
+            </div>
+            <div className="description_ls">
+              <label>აღწერა*</label>
+              <textarea placeholder='შეიყვანეთ აღწერა' name="description" value={formData.description} onChange={handleInputChange} required />
+              <span>მინიმუმ 2 სიმბოლო</span>
+            </div>
+            <div className="fjjKK">
+              <div className="date_in">
+                <label>გამოქვეყნების თარიღი*</label>
+                <input style={{ paddingLeft: '14px', paddingRight: '12px' }} type="date" name="publish_date" value={formData.publish_date} onChange={handleInputChange} required />
+              </div>
 
-      <label>Image:</label>
-      <input type="file" name="image" onChange={handleImageChange} accept="image/*" required />
-
-      <label>Author:</label>
-      <input type="text" name="author" value={formData.author} onChange={handleInputChange} required />
-
-      <label>Publish Date:</label>
-      <input type="date" name="publish_date" value={formData.publish_date} onChange={handleInputChange} required />
-
-      <label>Categories:</label>
-      <select multiple name="categories" value={formData.categories} onChange={handleCategoriesChange} required>
-        <option value="1">Category 1</option>
-        <option value="2">Category 2</option>
-        <option value="3">Category 3</option>
-      </select>
-
-      <label>Email:</label>
-      <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-
-      <button type="submit">Submit</button>
-    </form>
+              <div className="cat_ls">
+                <label>კატეგორია*</label>
+                <Select
+                  isMulti
+                  name="categories"
+                  options={categories}
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  onChange={(selectedOptions) =>
+                    setFormData({ ...formData, categories: selectedOptions.map(option => option.value) })
+                  }
+                  required
+                />
+              </div>
+            </div>
+            <div className="email_ls">
+              <label>ელ-ფოსტა</label>
+              <input placeholder='Example@redberry.ge' type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+            </div>
+            <div className="submitionbtn">
+              <button type="submit">გამოქვეყნება</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import BlogComponent from '../../components/BlogComponent';
 
 const AdminPage = () => {
   const [blogData, setBlogData] = useState([]);
-  const [displayCount, setDisplayCount] = useState(3);
+  const [displayCount, setDisplayCount] = useState(50);
 
   useEffect(() => {
     const fetchData = async () => {
