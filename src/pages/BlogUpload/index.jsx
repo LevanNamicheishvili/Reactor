@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import logo from '../../assets/images/logo.png';
 import Select from 'react-select';
+import back from '../../assets/images/apiimages/Arrow.png';
+import ImageUploader from '../../components/ImgUploader/index';
 const BlogForm = () => {
   const [formData, setFormData] = useState({
     title: '',
@@ -18,10 +20,9 @@ const BlogForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
+  const handleImageChange = (file) => {
+    setFormData({ ...formData, image: file });
   };
-
 
 
   const handleSubmit = async (e) => {
@@ -71,13 +72,18 @@ const BlogForm = () => {
         <img src={logo} alt="" />
       </header>
       <div className="flexup">
+        <div className="turback">
+          <a href="/admin"><img src={back} style={{cursor : 'pointer' , position : 'relative' , right : '26vh' , top : '3vh'}} alt="arrowbacks" /></a>
+        </div>
         <div className="container_sl">
           <form className='subm' onSubmit={handleSubmit}>
             <h1>ბლოგის დამატება</h1>
-            <div className="picuploderdiv">
-              <label>ატვირთეთ ფოტო</label>
-              <input type="file" name="image" onChange={handleImageChange} accept="image/*" required />
-
+            <div className="picuploderdiv11">
+              <span style={{fontWeight :'bold'}}>ატვირთეთ ფოტო*</span>
+            <ImageUploader
+                onChange={handleImageChange}
+            
+            />
             </div>
             <div className="detailsusrtitle">
               <div className="detailuser">

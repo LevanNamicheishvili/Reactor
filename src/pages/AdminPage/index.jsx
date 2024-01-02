@@ -36,9 +36,11 @@ const AdminPage = () => {
       <header>
         <li>
           <img src={logo} alt="logo.png" />
+          <a href="/admin/blogupload">
           <button className='logInButt'>
             დაამატე ბლოგი
           </button>
+          </a>
         </li>
       </header>
       <BlogComponent />

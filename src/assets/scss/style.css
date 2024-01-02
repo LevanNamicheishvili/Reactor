@@ -1013,6 +1013,10 @@ body {
 .subm .picuploderdiv {
   display: flex;
   flex-direction: column;
+  height: 180px;
+  border: 1px dashed #000000;
+  border-radius: 12px;
+  background-color: #F4F3FF;
 }
 .subm .picuploderdiv label {
   font-size: 16px;
@@ -1127,6 +1131,24 @@ body {
 
 .css-1y7rh0y-MultiValueGeneric2 {
   border-radius: 12px;
+}
+
+.picuploaderdiv {
+  height: 180px;
+  border: 1px dashed #000000;
+  border-radius: 12px;
+  background-color: #F4F3FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.picuploaderdiv div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .blogHeader {

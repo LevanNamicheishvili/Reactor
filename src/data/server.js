@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const app = express();
 const axios = require('axios');
@@ -11,7 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/api/submitBlog', async (req, res) => {
   const form = new FormData();
-  // Extract data from req.body and append to form
 
   try {
     const response = await axios.post(
