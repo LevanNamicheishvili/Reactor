@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import scs from '../../assets/images/apiimages/scs.png';
-
+import {useNavigate} from 'react-router-dom';
 
 
 const RegModal = ({ isModalVisible, setIsModalVisible }) => {
   const modalRef = useRef();
   const [email, setEmail] = useState("");
   const [loginError, setLoginError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -33,7 +34,9 @@ const RegModal = ({ isModalVisible, setIsModalVisible }) => {
 
       if (response.status === 204) {
         console.log("Login successful!");
+        document.cookie = "isLoggedIn=true; path=/";
         setIsModalVisible(false);
+        navigate('/admin');
       } else {
         const data = await response.json();
         setLoginError(data.message || "An error occurred during login.");
