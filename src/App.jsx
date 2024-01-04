@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<GeneralPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/admin/blogupload" element={<BlogComponent />} />
+        
       </Routes>
     </Router>
   );

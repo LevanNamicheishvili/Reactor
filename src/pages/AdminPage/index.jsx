@@ -1,10 +1,14 @@
+// AdminPage.jsx
 import React, { useState, useEffect } from 'react';
 import logo from '../../assets/images/logo.png';
 import BlogComponent from '../../components/BlogComponent';
+import Modal from '../../components/SliderModal/index';
 
 const AdminPage = () => {
   const [blogData, setBlogData] = useState([]);
   const [displayCount, setDisplayCount] = useState(50);
+  const [selectedBlog, setSelectedBlog] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,15 +35,25 @@ const AdminPage = () => {
     fetchData();
   }, []);
 
+  const handleViewDetails = (blog) => {
+    setSelectedBlog(blog);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedBlog(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <header>
         <li>
           <img src={logo} alt="logo.png" />
           <a href="/admin/blogupload">
-          <button className='logInButt'>
-            დაამატე ბლოგი
-          </button>
+            <button className='logInButt'>
+              დაამატე ბლოგი
+            </button>
           </a>
         </li>
       </header>
@@ -61,18 +75,45 @@ const AdminPage = () => {
                 <span>{item.title}</span>
               </div>
               <div className='cat_fetch_f'>
-                {item.categories.map((item, index) => (
-                  <span style={{ backgroundColor: item.background_color, color: item.text_color }} key={index}>{item.title}</span>
+                {item.categories.map((category, index) => (
+                  <span style={{ backgroundColor: category.background_color, color: category.text_color }} key={index}>{category.title}</span>
                 ))}
               </div>
               <div className='text_fetch'>
                 <p>{item.description}</p>
               </div>
-              <span style={{ fontSize: 14, color: '#5D37F3', cursor: 'pointer' }}>სრულად ნახვა ↗</span>
+              <span style={{ fontSize: 14, color: '#5D37F3', cursor: 'pointer' }} onClick={() => handleViewDetails(item)}>სრულად ნახვა ↗</span>
             </div>
           </div>
         ))}
       </section>
+
+      {isModalOpen && selectedBlog && (
+        <Modal onClose={handleCloseModal}>
+          <div>
+            <div className='Ig_ffSq'>
+              <img src={selectedBlog.image} alt="imgd" />
+            </div>
+            <div className='nameofpublisher' >
+              <span>{selectedBlog.author}</span>
+            </div>
+            <div className='dateofpublish'>
+              <span>{selectedBlog.publish_date}</span>
+            </div>
+            <div className='title_d'>
+              <span>{selectedBlog.title}</span>
+            </div>
+            <div className='cat_fetch_f' >
+              {selectedBlog.categories.map((category, index) => (
+                <span style={{ backgroundColor: category.background_color, color: category.text_color }} key={index}>{category.title}</span>
+              ))}
+            </div>
+            <div>
+              <p>{selectedBlog.description}</p>
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };
